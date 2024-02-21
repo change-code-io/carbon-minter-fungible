@@ -1,28 +1,17 @@
 const hre = require("hardhat");
 
 async function main() {
-    const contractAddress = "0x0ba329D41D07fa570b3DC0f686146e06a6f0Bb00";
-    const carbonRho = "0x28e0b075F524b4F6197691723Ef68974F2C0D45b";
-    const bcarbon = "0x204e07573052aa523f2662F98A3057791B19208C";
+    const contractAddress = "0xB6C3Ffd4D940C4eeD808473A75d0868528B59278";
+    const carbon_dev_minter = "0x5CBaF6a447d44d52bE4b6e6a7241e067b614Da49";
+    const carbon_dev_recipient_1 = "0x1FFF5A920dA884A0977C08caa3518F1Ae7e7aFD9";
 
-    const bCarbon_Carbon_Rho = await hre.ethers.getContractAt("BCarbon_Carbon_Rho", contractAddress);
+    const carbon_dev = await hre.ethers.getContractAt("Carbon_dev", contractAddress);
 
     const mintTokens = 
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 1, 2527, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 2, 1313, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 3, 1446, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 4, 1155, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 5, 71, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 6, 4518, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 7, 868, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 8, 602, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 9, 3127, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 10, 1068, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 11, 3553, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 12, 3502, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 13, 678, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 14, 773, "0x");
-    await bCarbon_Carbon_Rho.metamint(carbonRho, 15, 779, "0x");
+    await carbon_dev.mint_plus(carbon_dev_minter, 0, 100, "0x");
+    await carbon_dev.mint_plus(carbon_dev_recipient_1, 1, 101, "0x");
+    await carbon_dev.mint_plus(carbon_dev_recipient_1, 2, 102, "0x");
+    await carbon_dev.mint_plus(carbon_dev_recipient_1, 3, 103, "0x");
 
     console.log("Tokens minted!");
 }
