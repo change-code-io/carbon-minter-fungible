@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 require("@nomicfoundation/hardhat-ethers");
-const { API_URL, PRIVATE_KEY_MINTER } = process.env;
+const { API_URL, PRIVATE_KEY_MINTER, ETHERSCAN_API_KEY } = process.env;
 
 module.exports = {
   solidity: "0.8.20",
@@ -16,7 +16,7 @@ module.exports = {
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: "761P5CJ83AG3CK9YS82DU9W82N411EN1PB"
+    apiKey: ETHERSCAN_API_KEY
   },
   sourcify: {
     // Disabled by default
