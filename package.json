@@ -1,5 +1,5 @@
 {
-  "name": "bcarbon-minter-erc1155",
+  "name": "carbon-minter-fungible",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
