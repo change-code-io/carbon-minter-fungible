@@ -1,15 +1,15 @@
 const hre = require("hardhat");
 
 async function main() {
-    const contractAddress = "0xB6C3Ffd4D940C4eeD808473A75d0868528B59278";
-    const carbon_dev_recipient_1 = "0x1FFF5A920dA884A0977C08caa3518F1Ae7e7aFD9";
-    const carbon_dev_recipient_2 = "0x78Fa5c18a80eef995a4e50b74ED8CC13aF033A93";
+    const contractAddress = "0x5B6b59EE434d1d6525853435Edbe94735dD7F778";
+    const carbon_minter = "0x204e07573052aa523f2662F98A3057791B19208C";
+    const carbon_recipient_1 = "0xCDc503AFDbDc7025D8F1c68c2CA655AA383aD89f";
+    const carbon_recipient_2 = "0x56f0970E8332D75c92Bd7f59Fa5EB0d4662522c2";
 
-    const carbon_dev = await hre.ethers.getContractAt("Carbon_dev", contractAddress);
+    const carbon = await hre.ethers.getContractAt("Carbon", contractAddress);
 
     const transferTokens = 
-    await carbon_dev.transfer_plus(carbon_dev_recipient_1, carbon_dev_recipient_2, 1, 50, "0x");
-    await carbon_dev.transfer_plus(carbon_dev_recipient_1, carbon_dev_recipient_2, 2, 51, "0x");
+    await carbon.transfer_plus(carbon_recipient_1, carbon_recipient_2, 1, 531, "0x");
 
     console.log("Tokens transferred!");
 
