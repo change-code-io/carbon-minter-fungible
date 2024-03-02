@@ -6,22 +6,24 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
  
- contract Carbon_dev is Ownable, ERC1155, ERC1155Burnable {
-        
-    string public name = "Change Code -- Carbon";
-    string public symbol = "CC-CO2";
+ contract Carbon is Ownable, ERC1155, ERC1155Burnable {
+
+    string public name = "Change Code -- BCarbon | CO2";
+    string public symbol = "CC-BC-CO2";
     
-    uint256 public constant CARBON_BUFFER = 0;
-    uint256 public constant CARBON_CCO001 = 1;
-    uint256 public constant CARBON_CCO002 = 2;
-    uint256 public constant CARBON_CCO003 = 3;
+    //update batch names to be used
+    uint256 public constant REGISTRY_BUFFER = 0;
+    uint256 public constant REGISTRY_XXX001 = 1;
+    uint256 public constant REGISTRY_XXX002 = 2;
+    uint256 public constant REGISTRY_XXX003 = 3;
 
     using Strings for uint256;
 
-    string private baseURI = "https://jade-near-wasp-97.mypinata.cloud/ipfs/QmZXxKCJfhVqCTiydHdqyhWbQ2SGXrdWHLvnU9J3D7XndJ/";
+    //update all references to file storage
+    string private baseURI = "linkToFolder";
 
-    constructor() ERC1155("https://jade-near-wasp-97.mypinata.cloud/ipfs/QmZXxKCJfhVqCTiydHdqyhWbQ2SGXrdWHLvnU9J3D7XndJ/{id}.json") Ownable(msg.sender) {
-        _setURI("https://jade-near-wasp-97.mypinata.cloud/ipfs/QmZXxKCJfhVqCTiydHdqyhWbQ2SGXrdWHLvnU9J3D7XndJ/{id}.json");
+    constructor() ERC1155("linkToFolder{id}.json") Ownable(msg.sender) {
+        _setURI("linkToFolder{id}.json");
     }
 
     event TokenURI(string uri);
