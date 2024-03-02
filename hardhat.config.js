@@ -1,7 +1,7 @@
 require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 require("@nomicfoundation/hardhat-ethers");
-const { API_URL, PRIVATE_KEY_MINTER, ETHERSCAN_API_KEY } = process.env;
+const { API_URL, PRIVATE_KEY_MINTER, PRIVATE_KEY_RECIPIENT_1, PRIVATE_KEY_RECIPIENT_2, ETHERSCAN_API_KEY } = process.env;
 
 module.exports = {
   solidity: "0.8.20",

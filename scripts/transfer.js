@@ -7,7 +7,7 @@ async function main() {
     const carbon_recipient_1 = "";
     const carbon_recipient_2 = "";
 
-    const carbon_dev = await hre.ethers.getContractAt("Carbon_dev", contractAddress);
+    const carbon = await hre.ethers.getContractAt("Carbon", contractAddress);
 
     //input batch to be transferred (y) and quantity (x)
     const transferTokens = 
