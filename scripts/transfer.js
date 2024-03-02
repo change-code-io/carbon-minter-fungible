@@ -9,14 +9,12 @@ async function main() {
 
     const carbon = await hre.ethers.getContractAt("Carbon", contractAddress);
 
-    //update qunatity (x) and mint recipients
-    const mintTokens = 
-    await carbon.mint_plus(carbon_minter, 0, X, "0x");
-    await carbon.mint_plus(carbon_recipient_1, 1, X, "0x");
-    await carbon.mint_plus(carbon_recipient_, 2, X, "0x");
+    //input batch to be transferred (y) and quantity (x)
+    const transferTokens = 
+    await carbon.transfer_plus(carbon_recipient_1, carbon_recipient_2, Y, X, "0x");
 
+    console.log("Tokens transferred!");
 
-    console.log("Tokens minted!");
 }
 
 main().catch((error) => {
