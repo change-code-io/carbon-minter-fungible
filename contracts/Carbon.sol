@@ -11,14 +11,14 @@ import "@openzeppelin/contracts/access/Ownable.sol";
     string public name = "Change Code -- BCarbon | CO2";
     string public symbol = "CC-BC-CO2";
     
-    uint256 public constant BCARBON_FFS = 0;
+    uint256 public constant BCARBON_XXX = 0;
 
     using Strings for uint256;
 
-    string private baseURI = "https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology";
+    string private baseURI = "https://changecode.io";
 
-    constructor() ERC1155("https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology") Ownable(msg.sender) {
-        _setURI("https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology");
+    constructor() ERC1155("https://changecode.io") Ownable(msg.sender) {
+        _setURI("https://changecode.io");
     }
     
     function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {
