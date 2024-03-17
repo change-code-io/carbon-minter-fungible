@@ -11,37 +11,27 @@ import "@openzeppelin/contracts/access/Ownable.sol";
     string public name = "Change Code -- BCarbon | CO2";
     string public symbol = "CC-BC-CO2";
     
-    uint256 public constant BCARBON_BUFFER = 0;
-    uint256 public constant BCARBON_FFS001 = 1;
+    uint256 public constant BCARBON_FFS = 0;
 
     using Strings for uint256;
 
-    string private baseURI = "https://jade-near-wasp-97.mypinata.cloud/ipfs/QmQ56J4mE5g3AMbAGSmms4H8GCV3nGFRyAo9yFGahFYcJc/";
+    string private baseURI = "https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology";
 
-    constructor() ERC1155("https://jade-near-wasp-97.mypinata.cloud/ipfs/QmQ56J4mE5g3AMbAGSmms4H8GCV3nGFRyAo9yFGahFYcJc/{id}.json") Ownable(msg.sender) {
-        _setURI("https://jade-near-wasp-97.mypinata.cloud/ipfs/QmQ56J4mE5g3AMbAGSmms4H8GCV3nGFRyAo9yFGahFYcJc/{id}.json");
-    }
-
-    event TokenURI(string uri);
-
-    function tokenURI(uint256 tokenId) public view returns (string memory) {
-        return string(abi.encodePacked(baseURI, tokenId.toString(), ".json"));
+    constructor() ERC1155("https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology") Ownable(msg.sender) {
+        _setURI("https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology");
     }
     
-    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data) external payable onlyOwner {
+    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {
         _mint(to, tokenId, quantity, data);
-        emit TokenURI(tokenURI(tokenId));
     }
 
-
     // requires private key of sender (instead of contract owner)
-    function transfer_plus(address from, address to, uint256 tokenId, uint256 quantity, bytes calldata data) external payable {
+    function transfer_plus(address from, address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory transfer_metadata) external payable {
         safeTransferFrom(from, to, tokenId, quantity, data);
-        emit TokenURI(tokenURI(tokenId));
     }
     
     // uses private key of contract owner regardless of token holder
-     function burn(address from, uint256 tokenId, uint256 quantity) public onlyOwner override {
+     function burn_plus(address from, uint256 tokenId, uint256 quantity, string memory burn_metadata) public onlyOwner {
         _burn(from, tokenId, quantity);
     }
 }
