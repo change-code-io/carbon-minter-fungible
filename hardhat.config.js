@@ -10,7 +10,7 @@ module.exports = {
     hardhat: {},
     sepolia: {
       url: API_URL,
-      accounts: [`0x${PRIVATE_KEY_MINTER}`],
+      accounts: [`0x${PRIVATE_KEY_RECIPIENT_1}`],
     },
   },
   etherscan: {
