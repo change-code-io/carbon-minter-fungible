@@ -11,7 +11,22 @@ import "@openzeppelin/contracts/access/Ownable.sol";
     string public name = "Change Code -- BCarbon | CO2";
     string public symbol = "CC-BC-CO2";
     
-    uint256 public constant BCARBON_FFS = 0;
+    uint256 public constant BCARBON_RHO_BUFFER = 0;
+    uint256 public constant BCARBON_RHO001 = 1;
+    uint256 public constant BCARBON_RHO002 = 2;
+    uint256 public constant BCARBON_RHO003 = 3;
+    uint256 public constant BCARBON_RHO004 = 4;
+    uint256 public constant BCARBON_RHO005 = 5;
+    uint256 public constant BCARBON_RHO006 = 6;
+    uint256 public constant BCARBON_RHO007 = 7;
+    uint256 public constant BCARBON_RHO008 = 8;
+    uint256 public constant BCARBON_RHO009 = 9;
+    uint256 public constant BCARBON_RHO010 = 10;
+    uint256 public constant BCARBON_RHO011 = 11;
+    uint256 public constant BCARBON_RHO012 = 12;
+    uint256 public constant BCARBON_RHO013 = 13;
+    uint256 public constant BCARBON_RHO014 = 14;
+    uint256 public constant BCARBON_RHO015 = 15;
 
     using Strings for uint256;
 
