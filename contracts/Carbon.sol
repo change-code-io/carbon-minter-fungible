@@ -15,10 +15,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
     using Strings for uint256;
 
-    string private baseURI = "https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology";
+    string private baseURI = "https://bcarbon.changecode.io/methodologies/soil-carbon-methodology";
 
-    constructor() ERC1155("https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology") Ownable(msg.sender) {
-        _setURI("https://best-strengthening-495962.framer.app/methodologies/soil-carbon-methodology");
+    constructor() ERC1155("https://bcarbon.changecode.io/methodologies/soil-carbon-methodology") Ownable(msg.sender) {
+        _setURI("https://bcarbon.changecode.io/methodologies/soil-carbon-methodology");
     }
     
     function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {
