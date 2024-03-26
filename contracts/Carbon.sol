@@ -7,45 +7,31 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
  
  contract Carbon is Ownable, ERC1155, ERC1155Burnable {
-
+        
     string public name = "Change Code -- BCarbon | CO2";
     string public symbol = "CC-BC-CO2";
     
-    //update batch names to be used
-    uint256 public constant REGISTRY_BUFFER = 0;
-    uint256 public constant REGISTRY_XXX001 = 1;
-    uint256 public constant REGISTRY_XXX002 = 2;
-    uint256 public constant REGISTRY_XXX003 = 3;
+    uint256 public constant BCARBON_FFS = 0;
 
     using Strings for uint256;
 
-    //update all references to file storage
-    string private baseURI = "linkToFolder";
+    string private baseURI = "https://bcarbon.changecode.io/methodologies/soil-carbon-methodology";
 
-    constructor() ERC1155("linkToFolder{id}.json") Ownable(msg.sender) {
-        _setURI("linkToFolder{id}.json");
-    }
-
-    event TokenURI(string uri);
-
-    function tokenURI(uint256 tokenId) public view returns (string memory) {
-        return string(abi.encodePacked(baseURI, tokenId.toString(), ".json"));
+    constructor() ERC1155("https://bcarbon.changecode.io/methodologies/soil-carbon-methodology") Ownable(msg.sender) {
+        _setURI("https://bcarbon.changecode.io/methodologies/soil-carbon-methodology");
     }
     
-    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data) external payable onlyOwner {
+    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {
         _mint(to, tokenId, quantity, data);
-        emit TokenURI(tokenURI(tokenId));
     }
 
-
     // requires private key of sender (instead of contract owner)
-    function transfer_plus(address from, address to, uint256 tokenId, uint256 quantity, bytes calldata data) external payable {
+    function transfer_plus(address from, address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory transfer_metadata) external payable {
         safeTransferFrom(from, to, tokenId, quantity, data);
-        emit TokenURI(tokenURI(tokenId));
     }
     
     // uses private key of contract owner regardless of token holder
-     function burn(address from, uint256 tokenId, uint256 quantity) public onlyOwner override {
+     function burn_plus(address from, uint256 tokenId, uint256 quantity, string memory burn_metadata) public onlyOwner {
         _burn(from, tokenId, quantity);
     }
 }
