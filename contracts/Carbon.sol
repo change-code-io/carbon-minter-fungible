@@ -8,32 +8,19 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  
  contract Carbon is Ownable, ERC1155, ERC1155Burnable {
         
-    string public name = "Change Code -- BCarbon | CO2";
-    string public symbol = "CC-BC-CO2";
+    string public name = "Change Code -- Testing";
+    string public symbol = "CCT";
     
-    uint256 public constant BCARBON_RHO_BUFFER = 0;
-    uint256 public constant BCARBON_RHO001 = 1;
-    uint256 public constant BCARBON_RHO002 = 2;
-    uint256 public constant BCARBON_RHO003 = 3;
-    uint256 public constant BCARBON_RHO004 = 4;
-    uint256 public constant BCARBON_RHO005 = 5;
-    uint256 public constant BCARBON_RHO006 = 6;
-    uint256 public constant BCARBON_RHO007 = 7;
-    uint256 public constant BCARBON_RHO008 = 8;
-    uint256 public constant BCARBON_RHO009 = 9;
-    uint256 public constant BCARBON_RHO010 = 10;
-    uint256 public constant BCARBON_RHO011 = 11;
-    uint256 public constant BCARBON_RHO012 = 12;
-    uint256 public constant BCARBON_RHO013 = 13;
-    uint256 public constant BCARBON_RHO014 = 14;
-    uint256 public constant BCARBON_RHO015 = 15;
+    uint256 public constant Batch0 = 0;
+    uint256 public constant Batch1 = 1;
+
 
     using Strings for uint256;
 
-    string private baseURI = "https://bcarbon.changecode.io/methodologies/soil-carbon-methodology";
+    string private baseURI = "https://changecode.io";
 
-    constructor() ERC1155("https://bcarbon.changecode.io/methodologies/soil-carbon-methodology") Ownable(msg.sender) {
-        _setURI("https://bcarbon.changecode.io/methodologies/soil-carbon-methodology");
+    constructor() ERC1155("https://changecode.io") Ownable(msg.sender) {
+        _setURI("https://changecode.io");
     }
     
     function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {
