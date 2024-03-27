@@ -8,10 +8,12 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  
  contract Carbon is Ownable, ERC1155, ERC1155Burnable {
         
-    string public name = "Change Code -- BCarbon | CO2";
-    string public symbol = "CC-BC-CO2";
+    string public name = "Change Code -- Testing";
+    string public symbol = "CCT";
     
-    uint256 public constant BCARBON_XXX = 0;
+    uint256 public constant Batch0 = 0;
+    uint256 public constant Batch1 = 1;
+
 
     using Strings for uint256;
 
