@@ -5,11 +5,12 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "./TokenConfig.sol";
  
- contract Carbon is Ownable, ERC1155, ERC1155Burnable {
+ contract Carbon is Ownable, ERC1155Burnable {
         
-    string public name = "Change Code -- Testing";
-    string public symbol = "CCT";
+    string public name = TokenConfig.NAME;
+    string public symbol = TokenConfig.SYMBOL;
     
     uint256 public constant Batch0 = 0;
     uint256 public constant Batch1 = 1;
@@ -17,10 +18,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
     using Strings for uint256;
 
-    string private baseURI = "https://changecode.io";
+    string private baseURI = TokenConfig.URI;
 
-    constructor() ERC1155("https://changecode.io") Ownable(msg.sender) {
-        _setURI("https://changecode.io");
+    constructor() ERC1155(TokenConfig.URI) Ownable(msg.sender) {
+        _setURI(TokenConfig.URI);
     }
     
     function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {

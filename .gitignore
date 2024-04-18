@@ -3,6 +3,8 @@ node_modules
 node_modules
 .env
 .env.gpg
+config.js
+TokenConfig.sol
 
 # Hardhat files
 /cache
