@@ -1,5 +1,5 @@
 const hre = require("hardhat");
-const { contractAddress, carbon_recipient_2 } = require("./config");
+const { contractAddress, carbon_developer, data } = require("./config");
 
 async function main() {
 
@@ -14,7 +14,7 @@ async function main() {
     //connect the burner signer with the contract
     const carbonSigned = carbon.connect(burner);
     
-    await carbonSigned.burn_plus(carbon_recipient_2, 0, 1, "data4");
+    await carbonSigned.burn_plus(carbon_developer, 0, 2107, "data");
 
     console.log("Tokens burned!");
 

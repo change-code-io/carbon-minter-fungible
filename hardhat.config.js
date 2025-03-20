@@ -1,24 +1,30 @@
 require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 require("@nomicfoundation/hardhat-ethers");
-const { ALCHEMY_API_URL_AMOY, PRIVATE_KEY_MINTER, PRIVATE_KEY_RECIPIENT_1, PRIVATE_KEY_RECIPIENT_2, POLYGONSCAN_API_KEY } = process.env;
+const { API_URL, PRIVATE_KEY_MINTER, PRIVATE_KEY_DEVELOPER, PRIVATE_KEY_RECIPIENT_1, POLYGONSCAN_API_KEY } = process.env;
 
 module.exports = {
   solidity: "0.8.20",
-  defaultNetwork: "polygonAmoy",
+  defaultNetwork: "matic",
   networks: {
     hardhat: {},
-    polygonAmoy: {
-      url: ALCHEMY_API_URL_AMOY,
-      accounts: [`0x${PRIVATE_KEY_MINTER}`, `0x${PRIVATE_KEY_RECIPIENT_1}`],
+    matic: {
+      url: API_URL,
+      accounts: [`0x${PRIVATE_KEY_MINTER}`, `0x${PRIVATE_KEY_DEVELOPER}`, `0x${PRIVATE_KEY_RECIPIENT_1}`],
     },
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
-    apiKey: {
-      polygonAmoy: POLYGONSCAN_API_KEY
-    }
+    apiKey: POLYGONSCAN_API_KEY,
+    customChains: [
+      {
+        network: "matic",
+        chainId: 137,
+        urls: {
+          apiURL: "https://api.polygonscan.com/api",
+          browserURL: "https://polygonscan.com"
+        }
+      }
+    ]
   },
   sourcify: {
     // Disabled by default

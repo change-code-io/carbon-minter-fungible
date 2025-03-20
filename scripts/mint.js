@@ -1,6 +1,6 @@
 const hre = require("hardhat");
 // Import required variables from config.js
-const { contractAddress, carbon_recipient_1 } = require("./config");
+const { contractAddress, carbon_developer, bid, ipfs_data } = require("./config");
 
 async function main() {
     //get all signers
@@ -15,8 +15,7 @@ async function main() {
     //connect the minter signer with the contract
     const carbonSigned = carbon.connect(minter);
 
-    await carbonSigned.mint_plus(carbon_recipient_1, 0, 20, "0x", "data1");
-    await carbonSigned.mint_plus(carbon_recipient_1, 1, 25, "0x", "data2");   
+    await carbonSigned.mint_plus(carbon_developer, 0, 2107, "0x", bid, ipfs_data);
 
     console.log("Tokens minted!");
 }

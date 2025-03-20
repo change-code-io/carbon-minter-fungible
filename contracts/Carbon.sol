@@ -12,10 +12,6 @@ import "./TokenConfig.sol";
     string public name = TokenConfig.NAME;
     string public symbol = TokenConfig.SYMBOL;
     
-    uint256 public constant Batch0 = 0;
-    uint256 public constant Batch1 = 1;
-
-
     using Strings for uint256;
 
     string private baseURI = TokenConfig.URI;
@@ -24,17 +20,17 @@ import "./TokenConfig.sol";
         _setURI(TokenConfig.URI);
     }
     
-    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory mint_metadata) external payable onlyOwner {
+    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory ipfs_data) external payable onlyOwner {
         _mint(to, tokenId, quantity, data);
     }
 
     // requires private key of sender (instead of contract owner)
-    function transfer_plus(address from, address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory transfer_metadata) external payable {
+    function transfer_plus(address from, address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory bid, string memory ipfs_data) external payable {
         safeTransferFrom(from, to, tokenId, quantity, data);
     }
     
     // uses private key of contract owner regardless of token holder
-     function burn_plus(address from, uint256 tokenId, uint256 quantity, string memory burn_metadata) public onlyOwner {
+     function burn_plus(address from, uint256 tokenId, uint256 quantity, string memory ipfs_data) public onlyOwner {
         _burn(from, tokenId, quantity);
     }
 }

@@ -1,5 +1,5 @@
 const hre = require("hardhat");
-const { contractAddress, carbon_recipient_1, carbon_recipient_2 } = require("./config");
+const { contractAddress, carbon_sender, carbon_recipient_1 , bid, ipfs_data} = require("./config");
 
 async function main() {
     //get all signers
@@ -14,7 +14,7 @@ async function main() {
     //connect the transferFrom signer with the contract
     const carbonSigned = carbon.connect(transferFrom);
 
-    await carbonSigned.transfer_plus(carbon_recipient_1, carbon_recipient_2, 0, 5, "0x", "data3");
+    await carbonSigned.transfer_plus(carbon_sender, carbon_recipient_1, 1, 642483, "0x", bid, ipfs_data);
 
     console.log("Tokens transferred!");
 
