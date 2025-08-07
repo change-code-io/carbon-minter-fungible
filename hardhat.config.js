@@ -5,10 +5,10 @@ const { API_URL, PRIVATE_KEY_MINTER, PRIVATE_KEY_DEVELOPER, PRIVATE_KEY_RECIPIEN
 
 module.exports = {
   solidity: "0.8.20",
-  defaultNetwork: "matic",
+  defaultNetwork: "amoy",
   networks: {
     hardhat: {},
-    matic: {
+    amoy: {
       url: API_URL,
       accounts: [`0x${PRIVATE_KEY_MINTER}`, `0x${PRIVATE_KEY_DEVELOPER}`, `0x${PRIVATE_KEY_RECIPIENT_1}`],
     },

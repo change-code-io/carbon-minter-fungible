@@ -15,7 +15,7 @@ async function main() {
     //connect the minter signer with the contract
     const carbonSigned = carbon.connect(minter);
 
-    await carbonSigned.mint_plus(carbon_developer, 0, 2107, "0x", bid, ipfs_data);
+    await carbonSigned.mint_plus(carbon_developer, 0, 10475, "0x", bid, ipfs_data);
 
     console.log("Tokens minted!");
 }

@@ -9,18 +9,19 @@ import "./TokenConfig.sol";
  
  contract Carbon is Ownable, ERC1155Burnable {
         
-    string public name = TokenConfig.NAME;
-    string public symbol = TokenConfig.SYMBOL;
+    TokenConfig private tokenConfig = new TokenConfig();
+    string public name = tokenConfig.NAME();
+    string public symbol = tokenConfig.SYMBOL();
     
     using Strings for uint256;
 
-    string private baseURI = TokenConfig.URI;
+    string private baseURI = tokenConfig.URI();
 
-    constructor() ERC1155(TokenConfig.URI) Ownable(msg.sender) {
-        _setURI(TokenConfig.URI);
+    constructor() ERC1155(tokenConfig.URI()) Ownable(msg.sender) {
+        _setURI(tokenConfig.URI());
     }
     
-    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory ipfs_data) external payable onlyOwner {
+    function mint_plus(address to, uint256 tokenId, uint256 quantity, bytes calldata data, string memory bid, string memory ipfs_data) external payable onlyOwner {
         _mint(to, tokenId, quantity, data);
     }
 
@@ -30,7 +31,7 @@ import "./TokenConfig.sol";
     }
     
     // uses private key of contract owner regardless of token holder
-     function burn_plus(address from, uint256 tokenId, uint256 quantity, string memory ipfs_data) public onlyOwner {
+     function burn_plus(address from, uint256 tokenId, uint256 quantity, string memory bid, string memory ipfs_data) public onlyOwner {
         _burn(from, tokenId, quantity);
     }
 }
